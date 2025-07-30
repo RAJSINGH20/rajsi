@@ -1,0 +1,77 @@
+{
+	"name": "js-snippet",
+	"displayName": "js snippet",
+	"description": "Simple javascript Snippets to make the life easy.",
+	"version": "0.0.3",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.55.0"
+	},
+	"publisher": "Miladfathy",
+	"author": {
+		"name": "Miladfathy",
+		"url": "https://github.com/miladfathy/snippets",
+		"email": "miladfathylangeriz@gmail.com"
+	},
+	"repository": {
+		"url": "https://github.com/miladfathy/"
+	},
+	"icon": "assets/icon.png",
+	"keywords": [
+		"js",
+		"ecmascript",
+		"javascript",
+		"javaScript",
+		"js snippets",
+		"js snippet",
+		"js code",
+		"javascript code",
+		"snippet js",
+		"snippets javascript",
+		"JAVASCRIPT",
+		"ES6",
+		"es6",
+		"es",
+		"ES",
+		"JS Snippet",
+		"javascript Snippet",
+		"js Snippets",
+		"ecmascript Snippets",
+		"Milad Fathy",
+		"Snippet",
+		"Snippets",
+		"Sql"
+	],
+	"categories": [
+		"Snippets"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "javascript",
+				"path": "./snippets/javascript.json"
+			},
+			{
+				"language": "typescript",
+				"path": "./snippets/javascript.json"
+			},
+			{
+				"language": "javascriptreact",
+				"path": "./snippets/javascript.json"
+			},
+			{
+				"language": "typescriptreact",
+				"path": "./snippets/javascript.json"
+			},
+			{
+				"language": "vue",
+				"path": "./snippets/javascript.json"
+			}
+		]
+	},
+	"__metadata": {
+		"installedTimestamp": 1752458607832,
+		"targetPlatform": "undefined",
+		"size": 102150
+	}
+}

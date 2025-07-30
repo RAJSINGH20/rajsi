@@ -1,0 +1,247 @@
+{
+	"If Statement": {
+		"prefix": "if",
+		"body": "if(${1:condition}) {\r\n\t$2\r\n}",
+		"description": ""
+	},
+	"If Else Statement": {
+		"prefix": "ifelse",
+		"body": "if(${1:condition}) {\r\n\t$2\r\n} else {\r\n\t$3\r\n}",
+		"description": ""
+	},
+	"Else If Statement": {
+		"prefix": "elseif",
+		"body": "else if(${1:condition}) {\r\n\t$2\r\n}",
+		"description": ""
+	},
+	"Else Statement": {
+		"prefix": "else",
+		"body": "else{\r\n\t$1\r\n}",
+		"description": ""
+	},
+	"Switch Statement": {
+		"prefix": "switch",
+		"body": "switch (${1:variable}) {\r\n\tcase ${2:value}:\r\n\t\t$3\r\n\t\tbreak;\r\n\tdefault:\r\n\t\t$4\r\n\t\tbreak;\r\n}",
+		"description": ""
+	},
+	"Switch Case Statement": {
+		"prefix": "switchcase",
+		"body": "switch (${1:variable}) {\r\n\tcase ${2:value}:\r\n\t\t$3\r\n\t\tbreak;\r\n\tdefault:\r\n\t\t$4\r\n\t\tbreak;\r\n}",
+		"description": ""
+	},
+	"Case Definition In Switch Statement": {
+		"prefix": "case",
+		"body": "case ${1:value}:\r\n\t$2\r\n\tbreak;",
+		"description": ""
+	},
+	"For Loop Statment": {
+		"prefix": "for",
+		"body": "for (let ${1:index} = 0; ${1:index} < 5; ${1:index}++) {\r\n\t$2\r\n}\r\n",
+		"description": ""
+	},
+	"For Loop Statement": {
+		"prefix": "forstate",
+		"body": "for(${1:start};${2:condition};${3:step}){\r\n\t$4\r\n}",
+		"description": ""
+	},
+	"While Loop Statement": {
+		"prefix": "while",
+		"body": "while (${1:condition}) {\r\n\t$2\r\n\t${3:step};\r\n}",
+		"description": ""
+	},
+	"Do While Loop Statement": {
+		"prefix": "dowhile",
+		"body": "do {\r\n\t$2\r\n\t${3:step};\r\n} while (${1:condition});",
+		"description": ""
+	},
+	"Forin Loop Statement For Object": {
+		"prefix": "forin",
+		"body": "for (const ${1:key} in ${2:object}) {\r\n\tconsole.log(`\\${${1:key}}: ${${2:object[key]}}`);\r\n\t$3\r\n}",
+		"description": ""
+	},
+	"For Of Loop Statement in Array": {
+		"prefix": "forof",
+		"body": "for (const ${1:iterator} of ${2:array}) {\r\n\t$3\r\n}",
+		"description": ""
+	},
+	"ForEach Loop statement": {
+		"prefix": "foreach",
+		"body": "${1:array}.forEach(${2:element} => {\r\n\t$3\r\n});",
+		"description": ""
+	},
+	"Map Loop Statement": {
+		"prefix": "map",
+		"body": "${1:array}.map(${2:element} => {\r\n\t$3\r\n});",
+		"description": ""
+	},
+	"Function Statement": {
+		"prefix": "function",
+		"body": "function ${1:name}(${2:params}) {\r\n\t$3\r\n}",
+		"description": ""
+	},
+	"Function Statement ": {
+		"prefix": "func",
+		"body": "function ${1:name}(${2:params}) {\r\n\t$3\r\n}",
+		"description": ""
+	},
+	"Arrow Function": {
+		"prefix": "arrowfunction",
+		"body": "(${1:params}) => {\r\n\t$2\r\n};",
+		"description": ""
+	},
+	"Arrow Function ": {
+		"prefix": "=>",
+		"body": "(${1:params}) => {\r\n\t$2\r\n};",
+		"description": ""
+	},
+	"Defining Class": {
+		"prefix": "class",
+		"body": "class ${1:name} {\r\n\t$2\r\n}",
+		"description": ""
+	},
+	"Constructor Function": {
+		"prefix": "constructor",
+		"body": "constructor(${1:params}) {\r\n\tthis.${2:param} = ${2:param};\r\n\t$3\r\n}",
+		"description": ""
+	},
+	"Extends Class": {
+		"prefix": "classextends",
+		"body": "class ${1:name} extends ${2:parent} {\r\n\tconstructor(${3:params}) {\r\n\t\tsuper(${4:properties});\r\n\t\tthis.${5:param} = ${5:param};\r\n\t\t$6\r\n\t}\r\n}",
+		"description": ""
+	},
+	"Try Catch Block": {
+		"prefix": "trycatch",
+		"body": "try {\r\n\t$1\r\n} catch(${2:error}) {\r\n\t$3\r\n}",
+		"description": ""
+	},
+	"Try Catch Finally Block": {
+		"prefix": "trycatchfinally",
+		"body": "try {\r\n\t$1\r\n} catch (${2:error}) {\r\n\t$3\r\n} finally {\r\n\t$4\r\n}",
+		"description": ""
+	},
+	"Try Finally Block": {
+		"prefix": "tryfinally",
+		"body": "try {\r\n\t$1\r\n} finally {\r\n\t$2\r\n}",
+		"description": ""
+	},
+	"Import Module To Doc": {
+		"prefix": "import",
+		"body": "import ${1:moduleName} from '${2:module}';",
+		"description": ""
+	},
+	"Export Code Command": {
+		"prefix": "export",
+		"body": "export default ${1:codeOrVars};",
+		"description": ""
+	},
+	"Promise Statement": {
+		"prefix": "promise",
+		"body": "new Promise((resolve, reject) => {\r\n\tif(true){\r\n\t\tresolve('Yes');\r\n\t}else{\r\n\t\treject('No');\r\n\t}\r\n\tresolve();\r\n})\r\n\t.then((succ) => {\r\n\t\tconsole.log(succ);\r\n\t})\r\n\t.catch((err) => {\r\n\t\tconsole.log(err);\r\n\t});",
+		"description": ""
+	},
+	"AJAX Syntax Statement": {
+		"prefix": "ajax",
+		"body": "let ${1:element} = document.querySelector('${2:element}').addEventListener('${3:event}', ${4:listener});\r\nfunction ${4:listener}(){\r\n\tconst xhr = new XMLHttpRequest();\r\n\txhr.open('${5:Method}', '${6:Url}', ${7:async});\r\n\txhr.onload = function () {\r\n\t\tif (this.status === 200) {\r\n\t\t\t$8\r\n\t\t}\r\n\t};\r\n\txhr.send();\r\n}",
+		"description": ""
+	},
+	"Console Log in Browser": {
+		"prefix": "console",
+		"body": "console.log($1);",
+		"description": ""
+	},
+	"Console Log in Browser ": {
+		"prefix": "log",
+		"body": "console.log($1);",
+		"description": ""
+	},
+	"Console Log in Browser  ": {
+		"prefix": "cl",
+		"body": "console.log($1);",
+		"description": ""
+	},
+	"Console Log in Browser   ": {
+		"prefix": "clog",
+		"body": "console.log($1);",
+		"description": ""
+	},
+	"Js To JSON": {
+		"prefix": "stringify",
+		"body": "JSON.stringify($1);",
+		"description": ""
+	},
+	"Js To JSON ": {
+		"prefix": "jsonstringify",
+		"body": "JSON.stringify($1);",
+		"description": ""
+	},
+	"Js To JSON  ": {
+		"prefix": "js",
+		"body": "JSON.stringify($1);",
+		"description": ""
+	},
+	"JSON To Object": {
+		"prefix": "parse",
+		"body": "JSON.parse($1);",
+		"description": ""
+	},
+	"JSON To Object ": {
+		"prefix": "jsonparse",
+		"body": "JSON.parse($1);",
+		"description": ""
+	},
+	"JSON To Object  ": {
+		"prefix": "jp",
+		"body": "JSON.parse($1);",
+		"description": ""
+	},
+	"Document Query Selector": {
+		"prefix": "queryselector",
+		"body": "document.querySelector('$1');",
+		"description": ""
+	},
+	"Document Query Selector ": {
+		"prefix": "dqs",
+		"body": "document.querySelector('$1');",
+		"description": ""
+	},
+	"Document Query Selector  ": {
+		"prefix": "qs",
+		"body": "document.querySelector('$1');",
+		"description": ""
+	},
+	"Id Element Selector": {
+		"prefix": "#",
+		"body": "document.querySelector('#$1');",
+		"description": ""
+	},
+	"Class Element Selector": {
+		"prefix": ".",
+		"body": "document.querySelector('.$1');",
+		"description": ""
+	},
+	"Adding Event Listener": {
+		"prefix": "eventlistener",
+		"body": "$1.addEventListener('${2:type}',${3:handler});",
+		"description": ""
+	},
+	"Adding Event Listener ": {
+		"prefix": "ael",
+		"body": "$1.addEventListener('${2:type}',${3:handler});",
+		"description": ""
+	},
+	"Adding Event Listener  ": {
+		"prefix": "addeventlistener",
+		"body": "$1.addEventListener('${2:type}',${3:handler});",
+		"description": ""
+	},
+	"Require Packge": {
+		"prefix": "requirepackage",
+		"body": "const ${1:packageName} = require('${1:packageName}');",
+		"description": ""
+	},
+	"Require": {
+		"prefix": "require",
+		"body": "require('${1:packageName}');",
+		"description": ""
+	}
+}

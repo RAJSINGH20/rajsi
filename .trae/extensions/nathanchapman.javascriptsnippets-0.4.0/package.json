@@ -1,0 +1,44 @@
+{
+	"name": "javascriptsnippets",
+	"version": "0.4.0",
+	"license": "MIT",
+	"description": "Visual Studio Code snippets for JavaScript, TypeScript, and React",
+	"author": "Nathan Chapman <nathanchapman@duck.com> (http://nathanchapman.io)",
+	"publisher": "nathanchapman",
+	"displayName": "JavaScript Snippets",
+	"icon": "media/javascript.png",
+	"repository": "github:nathanchapman/vscode-javascript-snippets",
+	"bugs": "https://github.com/nathanchapman/vscode-javascript-snippets/issues",
+	"homepage": "https://github.com/nathanchapman/vscode-javascript-snippets#readme",
+	"engines": {
+		"vscode": "^1.x.x"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "javascript",
+				"path": "./snippets/js.code-snippets"
+			},
+			{
+				"language": "typescript",
+				"path": "./snippets/ts.code-snippets"
+			},
+			{
+				"language": "javascriptreact",
+				"path": "./snippets/jsx.code-snippets"
+			},
+			{
+				"language": "typescriptreact",
+				"path": "./snippets/tsx.code-snippets"
+			}
+		]
+	},
+	"__metadata": {
+		"installedTimestamp": 1752458192336,
+		"targetPlatform": "undefined",
+		"size": 92949
+	}
+}
