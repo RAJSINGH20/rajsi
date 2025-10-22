@@ -1,0 +1,30 @@
+{
+	"name": "Javascript-extension-pack",
+	"displayName": "Javascript Extension Pack",
+	"description": "The most common extensions for Javascript in one pack.\nThis extension pack includes: \nJavaScript (ES6) code snippets\nBabel JavaScript\nLatest TypeScript and Javascript Grammar\nStandardJS - JavaScript Standard Style\nJavaScript Snippet Pack\nJavaScript Atom Grammar\nJavaScript standardjs styled snippets\nJavaScript Booster",
+	"publisher": "walkme",
+	"version": "1.0.0",
+	"categories": [
+		"Extension Packs"
+	],
+	"extensionPack": [
+		"xabikos.JavaScriptSnippets",
+		"mgmcdermott.vscode-language-babel",
+		"ms-vscode.typescript-javascript-grammar",
+		"chenxsan.vscode-standardjs",
+		"akamud.vscode-javascript-snippet-pack",
+		"ms-vscode.js-atom-grammar",
+		"capaj.vscode-standardjs-snippets",
+		"sburg.vscode-javascript-booster"
+	],
+	"homepage": "https://walkmeshortcuts.com/",
+	"engines": {
+		"vscode": "^1.30.0"
+	},
+	"repository": "https://walkmeshortcuts.com/",
+	"__metadata": {
+		"installedTimestamp": 1751509205657,
+		"targetPlatform": "undefined",
+		"size": 4456
+	}
+}

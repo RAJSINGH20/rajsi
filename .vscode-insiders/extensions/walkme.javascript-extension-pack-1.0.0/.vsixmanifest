@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Language="en-US" Id="Javascript-extension-pack" Version="1.0.0" Publisher="walkme"  />
+    <DisplayName>Javascript Extension Pack</DisplayName>
+    <Description xml:space="preserve">The most common extensions for Javascript in one pack.
+This extension pack includes: 
+JavaScript (ES6) code snippets
+Babel JavaScript
+Latest TypeScript and Javascript Grammar
+StandardJS - JavaScript Standard Style
+JavaScript Snippet Pack
+JavaScript Atom Grammar
+JavaScript standardjs styled snippets
+JavaScript Booster</Description>
+    <Tags>javascript,__web_extension</Tags>
+    <Categories>Extension Packs</Categories>
+    <GalleryFlags>Public</GalleryFlags>
+    <Badges></Badges>
+    <Properties>
+      <Property Id="Microsoft.VisualStudio.Code.Engine" Value="^1.30.0" />
+      <Property Id="Microsoft.VisualStudio.Code.ExtensionDependencies" Value="" />
+      <Property Id="Microsoft.VisualStudio.Code.ExtensionPack" Value="xabikos.JavaScriptSnippets,mgmcdermott.vscode-language-babel,ms-vscode.typescript-javascript-grammar,chenxsan.vscode-standardjs,akamud.vscode-javascript-snippet-pack,ms-vscode.js-atom-grammar,capaj.vscode-standardjs-snippets,sburg.vscode-javascript-booster" />
+      <Property Id="Microsoft.VisualStudio.Code.ExtensionKind" Value="workspace,web" />
+      <Property Id="Microsoft.VisualStudio.Code.LocalizedLanguages" Value="" />
+      
+        <Property Id="Microsoft.VisualStudio.Services.Links.Source" Value="https://walkmeshortcuts.com/" />
+        <Property Id="Microsoft.VisualStudio.Services.Links.Getstarted" Value="https://walkmeshortcuts.com/" />
+        
+          <Property Id="Microsoft.VisualStudio.Services.Links.Repository" Value="https://walkmeshortcuts.com/" />
+        
+      
+      
+      <Property Id="Microsoft.VisualStudio.Services.Links.Learn" Value="https://walkmeshortcuts.com/" />
+      
+      
+      <Property Id="Microsoft.VisualStudio.Services.GitHubFlavoredMarkdown" Value="true" />
+      
+      
+      
+    </Properties>
+    
+    
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Code"/>
+  </Installation>
+  <Dependencies/>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" Addressable="true" />
+    <Asset Type="Microsoft.VisualStudio.Services.Content.Details" Path="extension/README.md" Addressable="true" /><Asset Type="Microsoft.VisualStudio.Services.Content.Changelog" Path="extension/CHANGELOG.md" Addressable="true" />
+  </Assets>
+</PackageManifest>
