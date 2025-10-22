@@ -1,0 +1,78 @@
+{
+  "Initialize Team": {
+    "prefix": ["afit","fteam"],
+    "body": ["Team team = Team(client);"],
+    "description": "Create a Team object and initialize it."
+  },
+
+  "Create Team": {
+    "prefix": ["afct", "aft","fcreateTeam"],
+    "body": ["Future result = team.create(teamId: '${1: TEAM_ID}' ,name: '${2: TEAM_NAME}');"],
+    "description": "Create a new Team."
+  },
+
+  "List Teams": {
+    "prefix": ["aflt","flistTeams", "flistTeams"],
+    "body": ["Future result = team.list();"],
+    "description": "Get a list of all the user teams. You can use the query params to filter your results. On admin mode, this endpoint will return a list of all of the project's teams."
+  },
+
+  "Get Team": {
+    "prefix": ["afgt","fgetTeam", "fgetTeam"],
+    "body": ["Future result = team.get(teamId: '$${1: TEAM_ID}');"],
+    "description": "Get a team by its unique ID."
+  },
+
+  "Update Team": {
+    "prefix": ["afut","fupdateTeam", "fupdateTeam"],
+    "body": ["Future result = team.update(teamId: '${1: TEAM_ID}', name: '$${2: TEAM_NAME}');"],
+    "description": "Update a team by its unique ID."
+  },
+
+  "Delete Team": {
+    "prefix": ["afdt","fdeleteTeam", "fdeleteTeam"],
+    "body": [
+      "Future result = teams.delete(",
+       " teamId: '${1: TEAM_ID}')',",
+    ");"
+   ],
+    "description": "Delete a team by its unique ID."
+  },
+
+  "Create Team Membership": {
+    "prefix": ["aftm","fcreateTeamMembership", "crTeamMembership"],
+    "body": [
+      "Future result = team.createMembership(teamId: '${1: TEAM_ID}', email: '${2: EMAIL}',roles: [${3: ROLES}], url: '${4: REDIRECT_URL}');"
+    ],
+    "description": "Create a new Team Membership."
+  },
+
+  "Get Team Membership": {
+    "prefix": ["afgtm","fgetTeamMembership", "fgetTeamMembership"],
+    "body": ["Future result = team.getMembership(teamId: ''${1: TEAM_ID}');"],
+    "description": "Get a team membership by its unique ID."
+  },
+
+  "Update Team Membership Roles": {
+    "prefix": ["afutmr","fupdateTeamMembershiproles"],
+    "body": [
+      "Future result = team.updateMembershipRoles(teamId: '${1: TEAM_ID}', membershipId: '${2: MEMBERSHIP_ID}',roles: [${3: ROLES}]);"
+    ],
+    "description": "Update a team membership by its unique ID."
+  },
+
+  "Update Team Membership status": {
+    "prefix": ["afutms","fupdateTeamMembershipstatus"],
+    "body": [
+      "Future result = team.updateMembershipStatus(teamId: '${1: TEAM_ID}', membershipId: '${2: MEMBERSHIP_ID}', userId: '${3: USER_ID}', secret: '${4: SECRET}');"
+    ],
+    "description": "Update a team membership by its unique ID."
+  },
+
+  "Delete Team Membership" : {
+    "prefix": ["afdtm","fdeleteTeamMembership", "fdeleteTeamMembership"],
+    "body": ["Future result = team.deleteMembership(teamId: '${1: TEAM_ID}', membershipId: '${2: MEMBERSHIP_ID}');"],
+    "description": "Delete a team membership by its unique ID."
+  },
+  
+}

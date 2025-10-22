@@ -1,0 +1,11 @@
+{
+  "Add a Client": {
+    "prefix": ["afc","client"],
+    "body": [
+      "Client client = Client()",
+      "\t.setEndpoint('${1: YOUR_ENDPOINT}')",
+      "\t.setProject('${2: YOUR_PROJECT_ID}')",
+    ],
+    "description": "Create a Client object and initialize it."
+  },
+}

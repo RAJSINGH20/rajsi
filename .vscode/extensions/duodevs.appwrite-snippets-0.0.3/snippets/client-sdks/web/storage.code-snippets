@@ -1,0 +1,53 @@
+{
+  "Create File": {
+    "prefix": "af",
+    "body": [
+      "let response = await sdk.storage.createFile('${1: BUCKET_ID}','${2: FILE_ID}', '${3: FILE}';"
+    ],
+    "description": "Create a new file. The user who creates the file will automatically be assigned to read and write access unless he has passed custom values for read and write arguments."
+  },
+
+  "List Files": {
+    "prefix": "lf",
+    "body": ["let response = await sdk.storage.listFiles('${1: BUCKET_ID}');"],
+    "description": "Get a list of all the user files. You can use the query params to filter your results. On admin mode, this endpoint will return a list of all of the project's files."
+  },
+
+  "Get File": {
+    "prefix": "gf",
+    "body": ["let response = await sdk.storage.getFile('${1: FILE_ID}');"],
+    "description": "Get a file by its unique ID."
+  },
+
+  "Get File Preview": {
+    "prefix": "gfp",
+    "body": ["let response = await sdk.storage.getFilePreview('${1: FILE_ID}');"],
+    "description": "Get a file preview by its unique ID."
+  },
+
+  "Get File for Download": {
+    "prefix": "gfd",
+    "body": ["let response = await sdk.storage.getFileDownload('${1: FILE_ID}');"],
+    "description": "Get a file for download by its unique ID."
+  },
+
+  "Get File for View": {
+    "prefix": "gfv",
+    "body": ["let response = await sdk.storage.getFileView('${1: FILE_ID}');"],
+    "description": "Get a file content by its unique ID. This endpoint is similar to the download method but returns with no 'Content-Disposition: attachment' header."
+  },
+
+  "Update File": {
+    "prefix": "uf",
+    "body": [
+      "let response = await sdk.storage.updateFile('${1: BUCKET_ID}','${2: FILE_ID}' );"
+    ],
+    "description": "Update a file by its unique ID. Only users with write permissions have access to update this resource."
+  },
+
+  "Delete File": {
+    "prefix": "df",
+    "body": ["await sdk.storage.deleteFile('${1: FILE_ID}');"],
+    "description": "Delete a file by its unique ID. Only users with write permissions have access to delete this resource."
+  }
+}

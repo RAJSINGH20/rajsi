@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST='{"app/components/chat/chunks/files-relation-graph.tsx -> react-force-graph-2d":{"id":32785,"files":["static/chunks/2785.417e90fd6b6cf915.js"]},"tools/index.ts -> ./prompts":{"id":76647,"files":[]}}';

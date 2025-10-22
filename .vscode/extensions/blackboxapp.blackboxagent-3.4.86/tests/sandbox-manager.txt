@@ -1,0 +1,319 @@
+# Sandbox Manager API Overview
+
+## Base URL
+```
+http://localhost:5001
+```
+
+## Authentication
+Currently, the API uses email-based authorization for configuration updates. Future versions may implement API key authentication.
+
+---
+
+## Core Endpoints
+
+### 1. Update Sandbox Configuration
+**POST** `/update-sandbox-config`
+
+Creates a new sandbox configuration or updates an existing one. If updating, validates that the requesting user email matches the stored email.
+
+#### Request Body
+```json
+{
+  "userEmail": "user@example.com",
+  "customerId": "customer_123",
+  "sandboxId": "sandbox_456",
+  "persistantConfig": {
+    "enabled": true,
+    "mode": "forever",
+    "limitedConfig": {
+      "startTimestamp": 1640995200000,
+      "days": 30
+    },
+    "lastCreditsCharge": {
+      "timestamp": 1640995200000,
+      "amount": 1.5
+    },
+    "lastWakeUpTimestamp": 1640995200000
+  }
+}
+```
+
+#### Request Body Schema
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `userEmail` | string | ✅ | Valid email address of the user |
+| `customerId` | string | ✅ | Unique customer identifier |
+| `sandboxId` | string | ✅ | Unique sandbox identifier |
+| `persistantConfig` | object | ✅ | Persistent configuration object |
+| `persistantConfig.enabled` | boolean | ✅ | Whether persistent mode is enabled |
+| `persistantConfig.mode` | string | ✅ | Either "forever" or "limited" |
+| `persistantConfig.limitedConfig` | object | ❌ | Required if mode is "limited" |
+| `persistantConfig.limitedConfig.startTimestamp` | number | ❌ | Start time in milliseconds |
+| `persistantConfig.limitedConfig.days` | number | ❌ | Duration in days (1-365) |
+| `persistantConfig.lastCreditsCharge` | object | ❌ | Last credit charge information |
+| `persistantConfig.lastCreditsCharge.timestamp` | number | ❌ | Timestamp of last charge |
+| `persistantConfig.lastCreditsCharge.amount` | number | ❌ | Amount charged |
+| `persistantConfig.lastWakeUpTimestamp` | number | ❌ | Last sandbox wake up time |
+
+#### Success Response (200)
+```json
+{
+  "success": true,
+  "message": "Configuration updated successfully"
+}
+```
+
+#### Error Responses
+- **400 Bad Request**: Validation errors
+- **401 Unauthorized**: Email mismatch for existing configuration
+- **500 Internal Server Error**: Server error
+
+#### Example Usage
+```bash
+curl -X POST http://localhost:3000/update-sandbox-config \
+  -H "Content-Type: application/json" \
+  -d '{
+    "userEmail": "john@example.com",
+    "customerId": "cust_123",
+    "sandboxId": "sb_456",
+    "persistantConfig": {
+      "enabled": true,
+      "mode": "limited",
+      "limitedConfig": {
+        "startTimestamp": 1640995200000,
+        "days": 30
+      }
+    }
+  }'
+```
+
+---
+
+### 2. Get Persistent Configuration
+**GET** `/get-persistant-config`
+
+Retrieves the persistent configuration for a specific sandbox.
+
+#### Query Parameters
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `sandboxId` | string | ✅ | Unique sandbox identifier |
+
+#### Success Response (200)
+```json
+{
+  "success": true,
+  "data": {
+    "enabled": true,
+    "mode": "forever",
+    "limitedConfig": {
+      "startTimestamp": 1640995200000,
+      "days": 30
+    },
+    "lastCreditsCharge": {
+      "timestamp": 1640995200000,
+      "amount": 1.5
+    },
+    "lastWakeUpTimestamp": 1640995200000
+  }
+}
+```
+
+#### Error Responses
+- **400 Bad Request**: Invalid or missing sandboxId
+- **404 Not Found**: Configuration not found
+- **500 Internal Server Error**: Server error
+
+#### Example Usage
+```bash
+curl "http://localhost:3000/get-persistant-config?sandboxId=sb_456"
+```
+
+---
+
+### 3. Health Check
+**GET** `/health`
+
+Returns the service health status and basic information.
+
+#### Success Response (200)
+```json
+{
+  "success": true,
+  "message": "Sandbox Manager is running",
+  "data": {
+    "timestamp": "2024-01-01T00:00:00.000Z",
+    "uptime": 123.456,
+    "version": "1.0.0"
+  }
+}
+```
+
+#### Example Usage
+```bash
+curl http://localhost:3000/health
+```
+
+---
+
+## Admin Endpoints
+
+### 4. Execute Background Job
+**POST** `/admin/execute-job`
+
+Manually triggers the persistent sandbox management job for debugging purposes.
+
+#### Success Response (200)
+```json
+{
+  "success": true,
+  "message": "Job executed successfully"
+}
+```
+
+#### Error Response (500)
+```json
+{
+  "success": false,
+  "error": "Job execution failed"
+}
+```
+
+#### Example Usage
+```bash
+curl -X POST http://localhost:3000/admin/execute-job
+```
+
+---
+
+### 5. Get Job Status
+**GET** `/admin/job-status`
+
+Returns the current status of the background job scheduler.
+
+#### Success Response (200)
+```json
+{
+  "success": true,
+  "data": {
+    "running": true
+  }
+}
+```
+
+#### Example Usage
+```bash
+curl http://localhost:3000/admin/job-status
+```
+
+---
+
+## Error Response Format
+
+All endpoints follow a consistent error response format:
+
+```json
+{
+  "success": false,
+  "error": "Error message describing what went wrong"
+}
+```
+
+### Common HTTP Status Codes
+- **200**: Success
+- **400**: Bad Request (validation errors)
+- **401**: Unauthorized (authentication/authorization errors)
+- **404**: Not Found (resource not found)
+- **429**: Too Many Requests (rate limit exceeded)
+- **500**: Internal Server Error (server errors)
+
+---
+
+## Rate Limiting
+
+The API implements rate limiting to prevent abuse:
+- **Limit**: 100 requests per 15 minutes per IP address
+- **Headers**: Rate limit information is included in response headers
+- **Exceeded**: Returns 429 status with retry information
+
+---
+
+## Data Types and Validation
+
+### Persistent Configuration Modes
+
+#### Forever Mode
+```json
+{
+  "enabled": true,
+  "mode": "forever"
+}
+```
+
+#### Limited Mode
+```json
+{
+  "enabled": true,
+  "mode": "limited",
+  "limitedConfig": {
+    "startTimestamp": 1640995200000,
+    "days": 30
+  }
+}
+```
+
+### Validation Rules
+- **Email**: Must be valid email format
+- **Sandbox ID**: 1-100 characters, alphanumeric
+- **Customer ID**: 1-100 characters, alphanumeric
+- **Days**: 1-365 for limited mode
+- **Timestamps**: Positive numbers (milliseconds since epoch)
+- **Credit amounts**: Non-negative numbers
+
+---
+
+## Background Job Logic
+
+The API includes an automated background job that runs every hour:
+
+### Job Process
+1. **Scan**: Retrieves all enabled persistent configurations
+2. **Validate**: Checks if limited mode configurations are still valid
+3. **Calculate**: Computes credits to charge based on elapsed time
+4. **Verify**: Checks if user has sufficient credits via payment server
+5. **Charge**: Consumes credits from user account
+6. **Manage**: Controls sandbox lifecycle (wake up after 22 hours, shutdown to save resources)
+7. **Disable**: Disables configuration and shuts down sandbox if insufficient credits
+
+### Credit Calculation
+- **Rate**: $0.2 per hour (configurable via environment variable)
+- **Precision**: Calculated to 4 decimal places
+- **Billing**: Based on actual elapsed time since last charge
+
+### Sandbox Lifecycle
+- **Wake Up**: Every 22 hours to maintain activity
+- **Hibernate**: Automatically after inactivity
+- **Shutdown**: When credits insufficient or limited mode expired
+- **Disable**: Configuration disabled when credits exhausted
+
+---
+
+## Integration Points
+
+### Payment Server Integration
+The API integrates with an external payment server:
+
+#### Get Credits Endpoint
+```
+GET /get-credits?customerId=customer_123
+```
+
+#### Consume Credits Endpoint
+```
+POST /consume-credits
+{
+  "customerId": "customer_123",
+  "amount": 1.5
+}
+```

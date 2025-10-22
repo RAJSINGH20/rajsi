@@ -1,0 +1,2 @@
+rm blackboxagent-*.vsix
+vsce package

@@ -1,0 +1,63 @@
+`
+  context.globalState.update("userEmail", null);
+  context.globalState.update("customerId", null);
+  context.globalState.update(creditsKey, null);
+  context.globalState.update("version_with_credits", null);
+
+  cus_ShmBTC3SL8jglG
+
+
+
+
+
+
+
+
+
+litellm
+dict_keys(['requester_metadata', 'user_api_key_hash', 'user_api_key_alias', 'user_api_key_team_id', 'user_api_key_user_id', 'user_api_key_org_id', 'user_api_key_team_alias', 'user_api_key_end_user_id', 'user_api_key_user_email', 'user_api_key_request_route', 'user_api_key', 'user_api_end_user_max_budget', 'litellm_api_version', 'global_max_parallel_requests', 'user_api_key_team_max_budget', 'user_api_key_team_spend', 'user_api_key_spend', 'user_api_key_max_budget', 'user_api_key_model_max_budget', 'user_api_key_metadata', 'headers', 'endpoint', 'litellm_parent_otel_span', 'requester_ip_address', 'model_group', 'model_group_alias', 'model_group_size', 'deployment', 'model_info', 'api_base', 'deployment_model_name', 'caching_groups', 'previous_models'])
+
+
+
+
+
+
+
+
+
+export const WEBSITE_DOMAIN = 'https://www.blackbox.ai'
+
+export const STRIPE_PRODUCT_ID = 'prod_RqgUOuSPFDL4T5'
+export const STRIPE_PRODUCT_NAME = 'cybercoder'
+export const STRIPE_PUBLIC_KEY = 'pk_test_51HicEZL2Of2xsCLo6zbyWn9YCZDN5WGOHYkZ69IlnXzpa9qY5DIlGRA0HxY2UBYBkiSGixz0gIWa0Tjz6vNXpGpM00tH6zy22x'
+
+export const BASE_CREDITS_FOR_PREMIUM = 0.01
+export const THRESHOLD_CREDITS_FOR_PREMIUM = 0.4
+export const DEFAULT_PRO_CREDITS = 8.99;
+
+export const PAYMENT_SERVER = 'http://localhost:3003'
+
+export const AUTO_FILL_THRESHOLD = 1
+export const AUTO_FILL_DEFAULT_AMOUNT = 20
+
+export const MONTHLY_DEFAULT_AMOUNT = 20
+
+`
+
+https://agent.blackbox.ai/?sandbox=ch7k4h&customerId=cus_ShNfyjPY72n5me
+
+
+http://localhost:8080/?sandbox=6ph7zj
+
+-------------------
+
+d25c352-xx
+https://agent.blackbox.ai/?sandbox=qlygps&prompt=build%20a%20hello%20page&customerEmail=af.bluec@gmail.com&customerId=test-credits-04@test.com
+
+
+
+d25c352
+https://agent.blackbox.ai/?sandbox=5mthkp&prompt=build%20a%20hello%20page&customerEmail=af.bluec@gmail.com&customerId=cus_RsnTx2oEv1oGjx
+
+15f4eea
+https://agent.blackbox.ai/?sandbox=ydcxkl&prompt=build%20a%20hello%20page&customerEmail=af.bluec@gmail.com&customerId=cus_RsnTx2oEv1oGjx
