@@ -1,1 +1,0 @@
-self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/home/jeanpdev/dev/codegpt-nextjs/app/[port]/layout":["static/media/e4af272ccee01ff0-s.p.woff2","static/media/a6d6efe2faf982ab-s.p.woff"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';
