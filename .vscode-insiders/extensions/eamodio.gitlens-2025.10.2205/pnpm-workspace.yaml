@@ -1,0 +1,5 @@
+minimumReleaseAge: 10080
+minimumReleaseAgeExclude:
+    - '@gitkraken/*'
+    - '@typescript-eslint/*'
+    - 'typescript-eslint'
